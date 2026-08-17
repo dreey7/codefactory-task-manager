@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeFactory Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>CodeFactory Task Manager</h1>
+        <p>Sistema de acompanhamento de tarefas</p>
+    </header>
+
+    <main>
+        <section class="task-form">
+            <h2>Nova tarefa</h2>
+
+            <div class="form-row">
+                <input
+                    type="text"
+                    id="taskInput"
+                    placeholder="Digite uma tarefa..."
+                >
+
+                <button onclick="addTask()">
+                    Adicionar
+                </button>
+            </div>
+        </section>
+        <section class="tasks">
+            <h2>Minhas tarefas</h2>
+            <ul id="taskList"></ul>
+            <p id="emptyMessage">
+                Nenhuma tarefa cadastrada.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>CodeFactory Solutions - Projeto DevOps</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
