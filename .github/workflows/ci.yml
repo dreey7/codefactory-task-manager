@@ -1,0 +1,44 @@
+name: CodeFactory CI
+
+on:
+  push:
+    branches:
+      - main
+      - desenvolvimento
+  pull_request:
+    branches:
+      - main
+      - desenvolvimento
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar código
+        uses: actions/checkout@v4
+
+      - name: Verificar arquivos
+        run: |
+          test -f index.html
+          test -f style.css
+          test -f script.js
+          test -f Dockerfile
+          echo "Todos os arquivos principais existem."
+
+      - name: Verificar HTML
+        run: |
+          grep -q "<html" index.html
+          grep -q "</html>" index.html
+          grep -q "<title>" index.html
+          echo "HTML básico validado."
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Validar JavaScript
+        run: |
+          node --check script.js
+          echo "JavaScript validado com sucesso."
